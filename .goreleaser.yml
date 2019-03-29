@@ -2,6 +2,8 @@
 before:
   hooks:
     - go mod download
+    - go generate github.com/iknite/raft-life/preset
+
 builds:
   - env:
       - CGO_ENABLED=0

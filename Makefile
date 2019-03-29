@@ -7,7 +7,7 @@ test:
 	go test -v ./format/...
 
 prepare:
-	go get github.com/gobuffalo/packr/packr
+	go mod download
 	go generate github.com/iknite/raft-life/preset
 
 install: prepare
