@@ -24,16 +24,14 @@ func TestDetectFormat(t *testing.T) {
 	}
 
 	for _, testCase := range testCases {
-		t.Run(testCase.Name, func(t *testing.T) {
-			f, err := os.Open(testCase.Filename)
-			if err != nil {
-				t.Fatal(err)
-			}
+		f, err := os.Open(testCase.Filename)
+		if err != nil {
+			t.Fatal(err)
+		}
 
-			detectedFormat := DetectFormat(f)
-			if detectedFormat != testCase.ExpectedFormat {
-				t.Errorf("ExpectedFormat: %v, but actually: %v", testCase.ExpectedFormat, detectedFormat)
-			}
-		})
+		detectedFormat := DetectFormat(f)
+		if detectedFormat != testCase.ExpectedFormat {
+			t.Errorf("ExpectedFormat: %v, but actually: %v", testCase.ExpectedFormat, detectedFormat)
+		}
 	}
 }

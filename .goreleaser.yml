@@ -1,8 +1,7 @@
 # Build customization
 before:
   hooks:
-    - go mod download
-    - go generate github.com/iknite/raft-life/preset
+    - make prepare
 
 builds:
   - env:
@@ -10,7 +9,6 @@ builds:
       - GO111MODULE=on
     binary: raft-life
     goos:
-      - windows
       - darwin
       - linux
     goarch:

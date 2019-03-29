@@ -1,20 +1,36 @@
-.PHONY: prepare install release
+.DEFAULT_GOAL := install
 
-ARTIFACTS_DIR=artifacts/${VERSION}
-GITHUB_USERNAME=sachaos
+# AutoEnv
+ifeq ($(CI),)
+	ENV ?= .env
+	ENV_GEN := $(shell ./.env.gen ${ENV} .env.required)
+	include ${ENV}
+	export $(shell sed 's/=.*//' ${ENV}))
+endif
 
+.PHONY: test
 test:
-	go test -v ./format/...
+	@go test -v -count=1 ./...
 
+
+.PHONY: lint
+lint:
+	@golangci-lint run
+
+
+.PHONY: prepare
 prepare:
-	go mod download
-	go generate github.com/iknite/raft-life/preset
+	@rm -rf dist
+	@go mod download
+	@go generate github.com/iknite/raft-life/preset
 
+
+.PHONY: install
 install: prepare
-	go install
+	@go install
 
-release: prepare
-	GOOS=windows GOARCH=amd64 go build -o $(ARTIFACTS_DIR)/go-life_windows_amd64
-	GOOS=darwin GOARCH=amd64 go build -o $(ARTIFACTS_DIR)/go-life_darwin_amd64
-	GOOS=linux GOARCH=amd64 go build -o $(ARTIFACTS_DIR)/go-life_linux_amd64
-	ghr -u $(GITHUB_USERNAME) -t $(shell cat github_token) --replace ${VERSION} $(ARTIFACTS_DIR)
+
+release-%: prepare
+	@bumpversion $*
+	@git push --follow-tags
+	@gorelease
