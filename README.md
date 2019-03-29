@@ -1,80 +1,8 @@
-# go-life
+# Raft-life
 
-Terminal based Conway's Game of Life. Implemented in Go.
+Conway's Game of Life, Backed up with multi-raft's [dragonboat](http://github.com/lni/dragonboat). 
 
-![demo](https://user-images.githubusercontent.com/6121271/47264728-44ec2d80-d557-11e8-8994-d4af53126fe5.gif)
+Shamelessly and gratefuly ripped from [sachaos/go-life](http://github.com/sachaos/go-life).
 
-## Features
-
-* Run on your terminal!
-* Insert pattern from presets
-* Color themes
-* Mouse editing
-
-## Install
-
-### Binary
-
-Go to release page and download.
-
-```shell
-$ wget https://github.com/iknite/raft-life/releases/download/v0.4.0/go-life_darwin_amd64 -O /usr/local/bin/go-life
-$ chmod +x /usr/local/bin/go-life
-```
-
-### Manually Build
-
-You need go version 1.11.
-
-```shell
-$ git clone https://github.com/iknite/raft-life.git
-$ make install
-```
-
-## How to use
-
-### Start
-
-```shell
-$ go-life
-```
-
-### Set pattern & theme
-
-```shell
-$ go-life --theme Ocean --pattern glider-gun
-```
-
-### Load pattern
-
-#### Load from STDIN
-
-```shell
-$ curl http://www.conwaylife.com/patterns/glider.rle | go-life --file -
-```
-
-#### Load from file
-
-```shell
-$ go-life --theme Ocean --file ./glider.lif
-```
-
-### Help
-
-```shell
-$ go-life --help
-```
-
-### Keymap
-
-```
-SPC: stop
-Enter: step
-c: clear
-r: random
-h: hide this message & status
-p: switch preset
-t: switch theme
-LeftClick: switch state
-RightClick: insert preset
-```
+---
+©iknite 2019. With <3, :coffee: and sleep hours
