@@ -19,7 +19,7 @@ esac
 
 test -n "${VERSION}" \
     && version=${VERSION} \
-    || version="0.0.1"
+    || version="0.0.0"
 
 bin_url="https://github.com/iknite/raft-life/releases/download/${version}/${cmd_name}_${version}_${machine}_${arch}"
 
