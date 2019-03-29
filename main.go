@@ -8,8 +8,8 @@ import (
 
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"
-	"github.com/sachaos/go-life/format"
-	"github.com/sachaos/go-life/preset"
+	"github.com/iknite/raft-life/format"
+	"github.com/iknite/raft-life/preset"
 	"github.com/urfave/cli"
 	"io"
 	"log"

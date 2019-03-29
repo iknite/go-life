@@ -7,8 +7,8 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/sachaos/go-life/format/life106"
-	"github.com/sachaos/go-life/format/rle"
+	"github.com/iknite/raft-life/format/life106"
+	"github.com/iknite/raft-life/format/rle"
 )
 
 const (

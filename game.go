@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/gdamore/tcell"
-	"github.com/sachaos/go-life/preset"
+	"github.com/iknite/raft-life/preset"
 )
 
 type Game struct {
