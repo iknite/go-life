@@ -6,13 +6,14 @@ import (
 	"os"
 	"time"
 
+	"io"
+	"log"
+
 	"github.com/gdamore/tcell"
 	"github.com/gdamore/tcell/encoding"
 	"github.com/iknite/raft-life/format"
 	"github.com/iknite/raft-life/preset"
 	"github.com/urfave/cli"
-	"io"
-	"log"
 )
 
 func initScreen() tcell.Screen {
@@ -107,7 +108,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "go-life"
 	app.Usage = "Conway's Game of Life"
-	app.Version = "0.4.0"
+	app.Version = "0.0.1"
 
 	app.Flags = []cli.Flag{
 		cli.BoolFlag{
